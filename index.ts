@@ -3,8 +3,8 @@
 import {Marshaller} from '@aws/dynamodb-auto-marshaller';
 import {Kinesis} from 'aws-sdk';
 
-const kinesis = new Kinesis({ region: 'eu-central-1' });
-const streamName = 'page_2_bi';
+const kinesis = new Kinesis({ region: 'eu-central-1' }); // todo move to environment vars
+const streamName = 'page_2_bi'; // todo move to environment vars
 const marshaller = new Marshaller();
 
 export function handler(event: any, context: any, callback: any) {
@@ -18,7 +18,8 @@ export function handler(event: any, context: any, callback: any) {
         request.then(
             (data: any) => {
                 // we may have here errored messages which would need to be processed again
-                // console.log(data);
+                // todo: check if all values are processed and retry the not successfull ones maybe by pushing them 
+                // to a seperate queue 
                 callback(null, 'Successfully processed and inserted ' + updatedItems.length + ' records');
             }, (err: any) => {
                 callback(err);
@@ -28,7 +29,7 @@ export function handler(event: any, context: any, callback: any) {
         callback(null, 'no records processed');
     }
 }
-
+// todo: create interface for data provider and move following code to a seperate Dynamo provider class
 function getNewAndUpdatedRecords(records: any) {
     return prepareKinesisUpdate(
         records.filter((record: any) => {
