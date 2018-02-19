@@ -36,7 +36,7 @@ function getNewAndUpdatedRecords(records: any) {
         }));
 }
 function prepareKinesisUpdate(items: any): any {
-    let records: any = [];
+    const records: any = [];
     items.forEach((item: any) => {
         // construct partition key, this strategy of partitioning may not be the best way
         // for all use cases

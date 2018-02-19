@@ -18,11 +18,6 @@ const tsOptions = {
 
 tsPipeline.registerBuildGulpTasks(gulp, tsOptions);
 
-gulp.task('lambda:build', ['tsPipeline:build:release'], (done) => {
-	done();
-});
-
-
 gulp.task('lambda:zip', ['lambda:build', 'lambda:npm'], () => {
 	return gulp.src(['./build/**/*', './build/.*'])
 		.pipe(zip('producer.zip'))
@@ -34,4 +29,8 @@ gulp.task('lambda:npm', () => {
   		.pipe(gulp.dest('./build'))
   		.pipe(install({ production: true })
 	);
+});
+
+gulp.task('lambda:build', ['tsPipeline:build:release'], (done) => {
+	done();
 });
