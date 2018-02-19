@@ -6,7 +6,10 @@ Transforms the items from Dynamo JSON to regular JSON before sending them into t
 In case you only want to stream to one consumer e.g. a s3 bucket you may take a look to the kinesis firehouse examples provided by AWS directly.
 
 #build process
+
 to build a deployable zip run gulp 
-'''
-lambda:zip 
-'''
+```
+npm i
+gulp lambda:zip 
+```
+
