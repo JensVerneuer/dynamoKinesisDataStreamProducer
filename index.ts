@@ -2,9 +2,9 @@
 
 import {Marshaller} from '@aws/dynamodb-auto-marshaller';
 import {Kinesis} from 'aws-sdk';
-
-const kinesis = new Kinesis({ region: 'eu-central-1' }); // todo move to environment vars
-const streamName = 'page_2_bi'; // todo move to environment vars
+const env = process.env;
+const kinesis = new Kinesis({ region: env.region }); // todo move to environment vars
+const streamName = env.dataStream; // todo move to environment vars
 const marshaller = new Marshaller();
 
 export function handler(event: any, context: any, callback: any) {

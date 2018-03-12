@@ -5,13 +5,12 @@
     "@aws/dynamodb-auto-marshaller": "^0.4.0"
   },
   "devDependencies": {
-    "dev": "^0.1.3",
-    "gulp-webpack-typescript-pipeline": "^9.0.1",
     "aws-sdk": "^2.196.0",
     "dev": "^0.1.3",
     "gulp": "^3.9.1",
     "gulp-install": "^1.1.0",
     "gulp-typescript": "^4.0.1",
+    "gulp-webpack-typescript-pipeline": "^9.0.1",
     "gulp-zip": "^4.1.0",
     "typescript": "^2.7.2"
   }
